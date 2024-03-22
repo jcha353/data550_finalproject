@@ -1,0 +1,74 @@
+---
+title: "Single-Cell Multiome Lung Report"
+author: "Jess Chan"
+date: "`r Sys.Date()`"
+output:
+  html_document:
+    toc: TRUE
+---
+
+# Introduction
+
+The data used in this project is a single-cell data set containing RNA, and ATAC data on lung tissue collected from control mice and mice exposed to heavy metal toxins. The overall goal of this project is to determine how gene expression and gene regulations can be susceptible to environmental exposures in developmental lung tissues from mice.
+
+The purpose of this analysis report is to identify, analyze, and visualize differentially expressed features between cell clusters. This analysis will focus on the control and treatment clusters for cell type 1. Using the SCT assay, (Single cell trasnformed), differential expression will be used to analyze gene expression. For the ATAC data, (assay for transposase-accessible chromatin), chormatin accessibility is analyzed via differential expression.
+
+```{r set-chunk-opts, echo = FALSE}
+library(knitr)
+opts_chunk$set(
+  echo = FALSE, warning = FALSE, message = FALSE
+)
+```
+
+```{r load-data}
+here::i_am("finalproject_report.Rmd")
+```
+
+
+# SCT Analysis
+Gene differential expression analysis results for the top 10 most significant genes in cell type 1. For each gene, the average log fold-change expression between the two groups is displayed along with it's associated p-vale based on the Wilcoxon Rank Sum test is displayed. 
+
+```{r SCT genes}
+sig1_SCT <- readRDS(
+  file = here::here("output/SCT_gene.rds")
+)
+kable(sig1_SCT, 
+      col.names = c("Gene", "Avg.Log Fold-Change", "p-value"),
+      digits = 3,
+      caption = "Top 10 Most Signficant Genes in Cell Type 1"
+      )
+```
+
+Below is a visualization of the gene expression levels for the top 2 most significant genes in cell type 1 across the two cluster groups: control and treated mice.
+
+```{r}
+#| out.width = "500px"
+knitr::include_graphics(
+  here::here("output/figures/SCT/DE_cell1.png")
+)
+```
+
+# ATAC Peak Analysis
+Peak, or chromatin accessibility region, differential expression analysis results for the top 10 most significant regions in cell type 1. For each peak/ region, the average log fold-change expression between the two groups is displayed along with it's associated p-vale based on the Wilcoxon Rank Sum test is displayed. 
+
+```{r ATAC peak}
+sig1_ATAC <- readRDS(
+  file = here::here("output/ATAC_peak.rds")
+)
+kable(sig1_ATAC, 
+      col.names = c("Peak", "Avg.Log Fold-Change", "p-value"),
+      digits = 3,
+      caption = "Top 10 Most Signficant Peak Regions in Cell Type 1"
+      )
+```
+
+The acessibility levels for the top 2 most significant regions in cell type 1 across the two cluster groups: control and treated mice, are displayed below. 
+
+```{r ATAC DE plot}
+#| out.width = "500px"
+knitr::include_graphics(
+  here::here("output/figures/ATAC/DE_cell1.png")
+)
+```
+
+
