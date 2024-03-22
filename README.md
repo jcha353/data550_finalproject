@@ -8,13 +8,13 @@ Single-Cell Multiome Lung Report
 
   - performs gene differential expression analysis for control and treated genes in cell type 1
   - tables the top 10 most significantly expressed genes in cell type 1 and saves as a .rds file
-  - makes plot of the top 2 most significant genes in cell type 1   
+  - makes plot of the top 2 most significant genes in cell type 1 and saves as a .png
 
 `code/02_ATAC_Analysis.R`
 
   - performs differential expression analysis on the chromatin accessibility (peaks) region in cell type 1
   - tables the top 10 most significant peaks in cell type 1 and saves as a .rds file
-  - makes plot of the top 2 most significant peaks in cell type 1 
+  - makes plot of the top 2 most significant peaks in cell type 1 and saves as a .png
 
 `code/03_render_report.R`
 
