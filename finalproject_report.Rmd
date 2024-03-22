@@ -62,7 +62,7 @@ kable(sig1_ATAC,
       )
 ```
 
-The acessibility levels for the top 2 most significant regions in cell type 1 across the two cluster groups: control and treated mice, are displayed below. 
+The accessibility levels for the top 2 most significant regions in cell type 1 across the two cluster groups: control and treated mice, are displayed below. 
 
 ```{r ATAC DE plot}
 #| out.width = "500px"
