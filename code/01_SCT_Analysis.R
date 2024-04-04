@@ -1,18 +1,17 @@
 here::i_am("code/01_SCT_Analysis.R")
 # set path from project directory 
 
-# load librariers 
+# load Libraries 
 options(warn=-1)
+# load the pacman library 
+if(!require('pacman')) { 
+  install.packages('pacman') 
+  library('pacman') 
+} 
+
 suppressMessages(
   {
-    library(Seurat)
-    library(SeuratData)
-    library(dplyr)
-    library(ggplot2)
-    library(Signac)
-    library(qlcMatrix)
-    library(BSgenome.Mmusculus.UCSC.mm10)
-    library(knitr)
+    p_load(Seurat, SeuratData,dplyr, ggplot2, Signac, qlcMatrix, BSgenome.Mmusculus.UCSC.mm10, knitr)
   }
 )
 
@@ -24,8 +23,6 @@ seurat <- readRDS(file = here::here("data/seurat.rds"))
 seurat$cell_name <- paste(seurat$cell_type, seurat$batch, sep = "_")
 Idents(seurat) <- "cell_name"
 
-seurat_full$cell_name <- paste(seurat_full$cell_type, seurat_full$batch, sep = "_")
-Idents(seurat_full) <- "cell_name"
 # SCT Analysis- Perform DE analysis
 
 de_result <- FindMarkers(seurat, ident.1 = "1_control", ident.2 = "1_treated", verbose = FALSE, recorrect_umi = FALSE)

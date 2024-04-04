@@ -1,4 +1,5 @@
-finalproject_report.html: finalproject_report.Rmd code/01_SCT_Analysis.R code/02_ATAC_Analysis.R
+finalproject_report.html: finalproject_report.Rmd code/01_SCT_Analysis.R code/02_ATAC_Analysis.R \
+	output/SCT_gene.rds output/ATAC_peak.rds code/03_render_report.R
 	Rscript code/03_render_report.R
 
 output/SCT_gene.rds: code/01_SCT_Analysis.R

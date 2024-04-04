@@ -1,6 +1,14 @@
 here::i_am("code/02_ATAC_Analysis.R")
 # set path from project directory 
 
+# Load Libraries
+library(pacman)
+suppressMessages(
+  {
+    p_load(Seurat, SeuratData,dplyr, ggplot2, Signac, qlcMatrix, BSgenome.Mmusculus.UCSC.mm10, knitr)
+  }
+)
+
 # load seurat data 
 seurat <- readRDS(file = here::here("data/seurat.rds"))
 
