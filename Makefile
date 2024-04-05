@@ -11,3 +11,8 @@ output/ATAC_peak.rds: code/02_ATAC_Analysis.R
 .PHONY: clean
 clean:
 	rm -f output/*.rds
+	
+.PHONT: install
+install:
+	Rscript -e "renv::restore(prompt = FALSE)"
+	
