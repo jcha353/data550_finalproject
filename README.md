@@ -40,5 +40,5 @@ Single-Cell Multiome Lung Report
 ## To generate the report
 1. Fork and clone this github repository to your desired location.
 2. In an R console, use `setwd` and `getwd` to confirm that the working directory is the project directory.
-3. Use `make install` in the terminal to download packages from renv.lock file/ 
+3. Use `make install` in the terminal to download packages from renv.lock file 
 4. Execute `make` or `make finalproject_report.html` in terminal to build report.
