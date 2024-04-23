@@ -1,12 +1,14 @@
-FROM rocker/r-ubuntu as base 
+FROM ubuntu as base 
 
+ENV DEBIAN_FRONTEND=noninteractive
+ENV R_VERSION=4.3.0
+RUN echo 'hi'
 RUN apt-get update
-RUN apt-get install -y pandoc
-
-RUN apt-get install -y r-base
-RUN apt-get install -y libcurl4-openssl-dev
-RUN apt-get install -y libglpk40
-
+RUN apt-get install -y gdebi-core curl
+RUN curl -O https://cdn.rstudio.com/r/ubuntu-2204/pkgs/r-${R_VERSION}_1_amd64.deb
+RUN gdebi -n r-${R_VERSION}_1_amd64.deb
+RUN ln -s /opt/R/${R_VERSION}/bin/R /usr/local/bin/R
+RUN ln -s /opt/R/${R_VERSION}/bin/Rscript /usr/local/bin/Rscript 
 
 RUN mkdir /project
 WORKDIR /project
@@ -21,7 +23,8 @@ COPY renv/settings.json renv/settings.json
 RUN mkdir renv/.cache 
 ENV RENV_PATHS_CACHE renv/.cache
 
-RUN R -e "renv::restore()"
+RUN Rscript -e "renv::restore()"
+
 
 
 #RUN Rscript -e "BiocManager::install('BSgenome.Mmusculus.UCSC.mm10')"
