@@ -2,7 +2,6 @@ FROM ubuntu as base
 
 ENV DEBIAN_FRONTEND=noninteractive
 ENV R_VERSION=4.3.0
-RUN echo 'hi'
 RUN apt-get update
 RUN apt-get install -y gdebi-core curl
 RUN curl -O https://cdn.rstudio.com/r/ubuntu-2204/pkgs/r-${R_VERSION}_1_amd64.deb
