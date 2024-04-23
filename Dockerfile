@@ -10,6 +10,8 @@ RUN gdebi -n r-${R_VERSION}_1_amd64.deb
 RUN ln -s /opt/R/${R_VERSION}/bin/R /usr/local/bin/R
 RUN ln -s /opt/R/${R_VERSION}/bin/Rscript /usr/local/bin/Rscript 
 
+RUN apt-get install -y libcurl4-openssl-dev libglpk40
+
 RUN mkdir /project
 WORKDIR /project
 
