@@ -13,7 +13,7 @@ COPY renv/settings.json renv/settings.json
 RUN mkdir renv/.cache 
 ENV RENV_PATHS_CACHE renv/.cache
 
-# RUN Rscript -e "renv::restore()"
+RUN Rscript -e "renv::restore()"
 
 #RUN Rscript -e "BiocManager::install('BSgenome.Mmusculus.UCSC.mm10')"
 #RUN Rscript -e "install.packages('here')"
@@ -26,18 +26,20 @@ COPY --from=base /project .
 COPY Makefile .
 COPY finalproject_report.Rmd .
 
-#RUN mkdir /code
-#RUN mkdir /output
-#RUN mkdir /output/figures
-#RUN mkdir /data
-#RUN mkdir /report
+RUN mkdir code
+RUN mkdir output
+RUN mkdir output/figures
+RUN mkdir output/figures/SCT
+RUN mkdir output/figures/ATAC
+RUN mkdir data
+RUN mkdir report
 
 # Copy over raw data
-#COPY data/seurat.rds data/seurat.rds
+COPY data/seurat.rds data/seurat.rds
 
 # Copy over code
-#COPY code/01_SCT_Analysis.R code/01_SCT_Analysis.R
-#COPY code/02_ATAC_Analysis.R code/02_ATAC_Analysis.R
-#COPY code/03_render_report.R code/03_render_report.R
+COPY code/01_SCT_Analysis.R code/01_SCT_Analysis.R
+COPY code/02_ATAC_Analysis.R code/02_ATAC_Analysis.R
+COPY code/03_render_report.R code/03_render_report.R
 
-#CMD make finalproject_report.html report
+CMD make && mv finalproject_report.html report
