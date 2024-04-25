@@ -34,7 +34,16 @@ Single-Cell Multiome Lung Report
   - `make .output/ATAC_peak.rds` will generate the table of significant peaks
   - `make clean` will remove all .rds files in the output folder
   - `make install` will restore all needed packages from the renv.lock file
+  - `make project_image` will generate the docker image
+  - `make report/final_report.html` will generate the report inside the docker container in a Mac/Linux-OS-specific target,
+  the report will be found in a local directory called `report`
 
+`Dockerfile`
+
+  - contains the instructions to construct the Docker image: final_project_image3 
+  - the docker image can be downloaded from Dockerhub: https://hub.docker.com/r/jchan353/final_project_image3 
+  - the docker image can also be downloaded by running `docker pull jchan353/final_project_image3` in the terminal
+  
 ------------------------------------------------------------------------
 
 ## To generate the report
@@ -42,3 +51,12 @@ Single-Cell Multiome Lung Report
 2. In an R console, use `setwd` and `getwd` to confirm that the working directory is the project directory.
 3. Use `make install` in the terminal to download packages from renv.lock file 
 4. Execute `make` or `make finalproject_report.html` in terminal to build report.
+
+------------------------------------------------------------------------
+
+## Using Docker to make the report
+1. The Docker image can be constructed automatically by running `make project_image` or can be built by downloading the image from \
+   https://hub.docker.com/r/jchan353/final_project_image3  or running `docker pull jchan353/final_project_image3` in the terminal
+2. Once the Docker image is built, run the command `make report/final_report.html` to generate the report in the container \
+  WARNING: This process takes a very long time (>2 hours)
+3. The report will be generated in a local directory called `report`
