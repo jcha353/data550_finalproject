@@ -15,8 +15,6 @@ ENV RENV_PATHS_CACHE renv/.cache
 
 RUN Rscript -e "renv::restore()"
 
-#RUN Rscript -e "BiocManager::install('BSgenome.Mmusculus.UCSC.mm10')"
-#RUN Rscript -e "install.packages('here')"
 ###### DO NOT EDIT STAGE 1 BUILD LINES ABOVE ######
 
 FROM dbenkeser/r430

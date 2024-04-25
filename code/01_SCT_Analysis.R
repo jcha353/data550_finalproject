@@ -9,13 +9,11 @@ if(!require('pacman')) {
   library('pacman') 
 } 
 
-library(here)
 suppressMessages(
   {
     p_load(Seurat, SeuratData,dplyr, ggplot2, Signac, qlcMatrix, BSgenome.Mmusculus.UCSC.mm10, knitr, here)
   }
 )
-#"BSgenome.Mmusculus.UCSC.mm10@1.4.3"
 
 # load seurat data 
 seurat <- readRDS(file = here::here("data/seurat.rds"))
