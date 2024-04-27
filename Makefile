@@ -30,4 +30,4 @@ project_image: Dockerfile $(PROJECTFILES) $(RENVFILES)
 
 # Rule to run container and build report
 report/final_report.html: 
-	docker run -v "$$(pwd)"/report:/project/report final_project_image3
+	docker run -v "$$(pwd)"/report:/project/report jchan353/final_project_image3
