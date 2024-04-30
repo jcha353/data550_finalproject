@@ -40,9 +40,9 @@ Single-Cell Multiome Lung Report
 
 `Dockerfile`
 
-  - contains the instructions to construct the Docker image: final_project_image3 
-  - the docker image can be downloaded from Dockerhub: https://hub.docker.com/r/jchan353/final_project_image3 
-  - the docker image can also be downloaded by running `docker pull jchan353/final_project_image3` in the terminal
+  - contains the instructions to construct the Docker image: final_project_image4 
+  - the docker image can be downloaded from Dockerhub: https://hub.docker.com/r/jchan353/final_project_image4 
+  - the docker image can also be downloaded by running `docker pull jchan353/final_project_image4` in the terminal
   
 ------------------------------------------------------------------------
 
@@ -56,7 +56,7 @@ Single-Cell Multiome Lung Report
 
 ## Using Docker to make the report
 1. The Docker image can be constructed automatically by running `make project_image` or can be built by downloading the image from \
-   https://hub.docker.com/r/jchan353/final_project_image3  or running `docker pull jchan353/final_project_image3` in the terminal
+   https://hub.docker.com/r/jchan353/final_project_image4 or running `docker pull jchan353/final_project_image4` in the terminal
 2. Once the Docker image is built, run the command `make report/final_report.html` to generate the report in the container \
   WARNING: This process takes a very long time (>2 hours)
 3. The report will be generated in a local directory called `report`
