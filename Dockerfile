@@ -1,5 +1,10 @@
 FROM dbenkeser/r430 as base 
 
+RUN apt-get update && apt-get install -y libxml2-dev
+RUN apt-get install -y libssl-dev
+RUN apt-get install -y libglpk-dev
+RUN apt-get install -y libpng-dev
+
 RUN mkdir /project
 WORKDIR /project
 
@@ -13,6 +18,7 @@ COPY renv/settings.json renv/settings.json
 RUN mkdir renv/.cache 
 ENV RENV_PATHS_CACHE renv/.cache
 
+RUN Rscript -e "install.packages('XML')"
 RUN Rscript -e "renv::restore()"
 
 ###### DO NOT EDIT STAGE 1 BUILD LINES ABOVE ######

@@ -25,9 +25,9 @@ RENVFILES = renv.lock renv/activate.R renv/settings.json
 
 # Rule to build image
 project_image: Dockerfile $(PROJECTFILES) $(RENVFILES)
-	docker build -t final_project_image3 .
+	docker build -t final_project_image4 .
 	touch$@
 
 # Rule to run container and build report
 report/final_report.html: 
-	docker run -v "$$(pwd)"/report:/project/report jchan353/final_project_image3
+	docker run -v "$$(pwd)"/report:/project/report jchan353/final_project_image4
