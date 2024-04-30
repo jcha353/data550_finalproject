@@ -36,7 +36,9 @@ Single-Cell Multiome Lung Report
   - `make install` will restore all needed packages from the renv.lock file
   - `make project_image` will generate the docker image
   - `make report/final_report.html` will generate the report inside the docker container in a Mac/Linux-OS-specific target,
-  the report will be found in a local directory called `report`
+  the report will be found in a local directory called `report`. If using a Windows machine, please add an extra / to the make rule \
+  (i.e. `docker run -v "/$$(pwd)"/report:/project/report jchan353/final_project_image4`) before running the make rule
+
 
 `Dockerfile`
 
